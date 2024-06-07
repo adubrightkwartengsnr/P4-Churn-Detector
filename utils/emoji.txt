@@ -1,0 +1,5 @@
+Home Page: 🏠 (House)
+Data Page: 🗄️ (Bar Chart)
+Prediction Page: 🤖 
+History Page: 🕰️ 
+Dashboard Page: 📈
