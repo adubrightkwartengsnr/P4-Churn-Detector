@@ -3,3 +3,6 @@ Data Page: 🗄️ (Bar Chart)
 Prediction Page: 🤖 
 History Page: 🕰️ 
 Dashboard Page: 📈
+Personal: 🧑‍💼
+Service Informatio: 🛠️
+hand: 👇
