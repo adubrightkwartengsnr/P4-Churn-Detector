@@ -136,5 +136,6 @@ if __name__ == "__main__":
             st.write(st.session_state["prediction"])
         with col2:
             st.write("### 🎯Prediction Probability")
-            st.write(f"{st.session_state['probability']:.2f}")
+            probability = st.session_state['probability'] *100
+            st.write(f"{probability:.2f} %")
     
