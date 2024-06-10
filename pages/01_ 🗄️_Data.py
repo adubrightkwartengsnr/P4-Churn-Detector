@@ -1,6 +1,7 @@
 import streamlit as st
 import pyodbc
 import pandas as pd
+import time
 
 st.set_page_config(
     page_title ='Data Page',
@@ -42,8 +43,34 @@ uploaded_file = st.file_uploader("Upload your data", type="csv")
 if uploaded_file is not None:
     df =pd.read_csv(uploaded_file)
 else:
-    df = get_all_columns()
+    # load second training data
+    df1 = pd.read_csv("./data/LP2_Telco-churn-second-2000.csv")
+    df2 = get_all_columns()
+    train_df = pd.concat([df1,df2])
     
+
+
+def values_mapper(df,columns):
+    """ This function takes two parameters and map the values in the column
+    df: dataframe object
+    columns_columns: columnsin in the dataframe that you want to map the values
+    returns dataframe
+    """
+    for col in columns:
+        cat_mapping = {True:"Yes",False:"No","No internet service":"No","No phone service":"No"}
+        df[col] = df[col].replace(cat_mapping)
+    return df
+
+columns_to_map = ["PaperlessBilling","Partner","Dependents","PhoneService","Churn","StreamingMovies","StreamingTV","MultipleLines","OnlineSecurity","OnlineBackup","DeviceProtection","TechSupport"]
+train_df = values_mapper(train_df,columns=columns_to_map)
+
+#create a progress bar to let user know data is loading
+progress_bar = st.progress(0)
+for percentage_completed in range(100):
+    time.sleep(0.02)
+    progress_bar.progress(percentage_completed+1)
+
+st.success("Data loaded successfully!")
 
 col1,col2 = st.columns(2)
 with col2:
@@ -51,11 +78,11 @@ with col2:
 
 # Filtering Datatypes
 if category == "Numerical Columns":
-    filtered_df = df.select_dtypes(include="number")
+    filtered_df = train_df.select_dtypes(include="number")
 elif category == "Categorical Columns":
-    filtered_df = df.select_dtypes(exclude="number")
+    filtered_df = train_df.select_dtypes(exclude="number")
 else:
-    filtered_df = df
+    filtered_df = train_df
 
 # display the filtered dataframe
 st.write(filtered_df)
