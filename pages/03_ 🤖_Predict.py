@@ -113,7 +113,7 @@ def display_forms():
         "Credit card (automatic)"], key="payment_method")
             st.selectbox("Select your prefered contract type",options=["Month-to-month","One year","Two year"],key="contract")
             st.selectbox("Have you subscribed to our Paperless Billing Service?",options=["Yes","No"],key="paperless_billing")
-        st.form_submit_button("Predict",on_click=make_prediction,kwargs=dict(pipeline=pipeline,encoder=encoder))
+        st.form_submit_button("Make Prediction",on_click=make_prediction,kwargs=dict(pipeline=pipeline,encoder=encoder))
 
 
 
