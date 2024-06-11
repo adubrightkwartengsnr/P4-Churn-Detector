@@ -1,6 +1,8 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
+import datetime
 
 st.set_page_config(
     page_title ='Predict Page',
@@ -65,7 +67,8 @@ def make_prediction(pipeline,encoder):
     # create columns for the dataframe
     columns = ["Tenure", "MonthlyCharges","PaymentMethod","Contract","PaperlessBilling","Dependents"]
     df = pd.DataFrame(data=data,columns=columns)
-    # make prediction
+
+    # make predictions
     pred = pipeline.predict(df)
     pred_int = int(pred[0])
 
@@ -77,6 +80,15 @@ def make_prediction(pipeline,encoder):
 
      # Map probability to Yes or No
     probability_label = "Yes" if pred_int == 1  else "No"
+    
+    # update the dataframe to capture predictions for the history page
+    df["PredictionTime"] = datetime.date.today()
+    df["ModelUsed"] = st.session_state["selected_model"]
+    df["Prediction"] = st.session_state["prediction"]
+    df["PredictionProbability"] = st.session_state["probability"]
+    # export df as prediction_history.csv
+    df.to_csv('./data/prediction_history.csv',mode="a", header=not os.path.exists('./data/prediction_history.csv'),index=False)
+    
     # update the session state with the prediction and probability
     st.session_state["prediction"] = prediction
     st.session_state["probability_label"] = probability_label
@@ -108,7 +120,7 @@ def display_forms():
         with col2:
             st.write("### Service Information 🛠️")
             st.number_input("Enter your monthly charges",min_value=0.0, max_value = 200.0,step=0.1, key="monthly_charges")
-            st.number_input("Enter you total charges per year",min_value=0,max_value=10000,key="total_charges")
+            st.number_input("Enter you total charges per year",min_value=0,max_value=100000,key="total_charges")
             st.selectbox("Select your payment method",options= ["Electronic check", "Mailed check","Bank transfer (automatic)",
         "Credit card (automatic)"], key="payment_method")
             st.selectbox("Select your prefered contract type",options=["Month-to-month","One year","Two year"],key="contract")
@@ -136,6 +148,9 @@ if __name__ == "__main__":
             st.write(st.session_state["prediction"])
         with col2:
             st.write("### 🎯Prediction Probability")
+            probability = st.session_state['probability']*100
+            st.write(f"{probability:.2f}%")
             probability = st.session_state['probability'] *100
             st.write(f"{probability:.2f} %")
     
+

@@ -1,0 +1,9 @@
+Tenure,MonthlyCharges,PaymentMethod,Contract,PaperlessBilling,Dependents,PredictionTime,ModelUsed,Prediction,PredictionProbability
+0,28.0,Electronic check,Month-to-month,Yes,Yes,2024-06-11,Catboost,,
+0,150.0,Bank transfer (automatic),Two year,No,Yes,2024-06-11,Catboost,Yes,0.6337795203507778
+0,150.0,Bank transfer (automatic),Two year,No,Yes,2024-06-11,Catboost,No,0.7031200670909015
+0,150.0,Bank transfer (automatic),One year,Yes,Yes,2024-06-11,Catboost,No,0.7031200670909015
+0,150.0,Bank transfer (automatic),Month-to-month,Yes,Yes,2024-06-11,Logistic Regression,No,0.5174476058253712
+40,20.0,Electronic check,Two year,Yes,Yes,2024-06-11,SGB,Yes,0.7553810661557713
+11,180.0,Credit card (automatic),Month-to-month,No,Yes,2024-06-11,Catboost,No,0.9800727702205311
+11,180.0,Credit card (automatic),Month-to-month,No,Yes,2024-06-11,Catboost,No,0.5913444999123417
