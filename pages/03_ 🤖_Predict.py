@@ -150,5 +150,7 @@ if __name__ == "__main__":
             st.write("### 🎯Prediction Probability")
             probability = st.session_state['probability']*100
             st.write(f"{probability:.2f}%")
+            probability = st.session_state['probability'] *100
+            st.write(f"{probability:.2f} %")
+    
 
-st.write(st.session_state)
