@@ -1,6 +1,8 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
+import datetime
 
 st.set_page_config(
     page_title ='Predict Page',
@@ -86,7 +88,8 @@ def make_prediction(pipeline,encoder):
                'MultipleLines','StreamingTV','StreamingMovies','OnlineSecurity', 
                'OnlineBackup', 'DeviceProtection', 'TechSupport','InternetService']
     df = pd.DataFrame(data=data,columns=columns)
-    # make prediction
+
+    # make predictions
     pred = pipeline.predict(df)
     pred_int = int(pred[0])
 
@@ -98,6 +101,11 @@ def make_prediction(pipeline,encoder):
 
      # Map probability to Yes or No
     probability_label = "Yes" if pred_int == 1  else "No"
+     
+    # update the session state with the prediction and probability
+    st.session_state["prediction"] = prediction
+    st.session_state["probability_label"] = probability_label
+    st.session_state["probability"] = probability
     
     # update the dataframe to capture predictions for the history page
     df["PredictionTime"] = datetime.date.today()
@@ -106,11 +114,6 @@ def make_prediction(pipeline,encoder):
     df["PredictionProbability"] = st.session_state["probability"]
     # export df as prediction_history.csv
     df.to_csv('./data/prediction_history.csv',mode="a", header=not os.path.exists('./data/prediction_history.csv'),index=False)
-    
-    # update the session state with the prediction and probability
-    st.session_state["prediction"] = prediction
-    st.session_state["probability_label"] = probability_label
-    st.session_state["probability"] = probability
     return prediction,probability_label,probability
 
 # create an 
@@ -136,10 +139,9 @@ def display_forms():
             st.selectbox("Do you have a dependent ?",options=["Yes","No"],key="dependents")
             st.selectbox("Do you have a partner?",options= ["Yes", "No",],key="partner")
             st.number_input("Enter your tenure",min_value = 0, max_value = 72,step=1, key="tenure")
-        with col2:
-            st.write("### Service Information 🛠️")
-            st.number_input("Enter your monthly charges",min_value=0.0, max_value = 200.0,step=0.1, key="monthly_charges")
-            st.number_input("Enter you total charges per year",min_value=0,max_value=100000,key="total_charges")
+            st.number_input("Enter your monthly charges",min_value=0.00, max_value = 200.00,step=0.10, key="monthly_charges")
+            st.number_input("Enter you total charges per year",min_value=0.00,max_value=100000.00, step=0.10,key="total_charges")
+            st.selectbox("Select your prefered contract type",options=["Month-to-month","One year","Two year"],key="contract")
             st.selectbox("Select your payment method",options= ["Electronic check", "Mailed check","Bank transfer (automatic)",
         "Credit card (automatic)"], key="payment_method")
         with col2:
@@ -154,7 +156,7 @@ def display_forms():
             st.selectbox("Have you subscribed to our streaming TV service?",options=["Yes","No"],key="streaming_tv")
             st.selectbox("Have you subscribed to our streaming movies service?",options=["Yes","No"],key="streaming_movies")
             st.selectbox("Have you subscribed to our Paperless Billing Service?",options=["Yes","No"],key="paperless_billing")
-        st.form_submit_button("Predict",on_click=make_prediction,kwargs=dict(pipeline=pipeline,encoder=encoder))
+        st.form_submit_button("Make Prediction",on_click=make_prediction,kwargs=dict(pipeline=pipeline,encoder=encoder))
 
 
 
@@ -180,4 +182,5 @@ if __name__ == "__main__":
             probability = st.session_state['probability']*100
             st.write(f"{probability:.2f}%")
             
+    
 
