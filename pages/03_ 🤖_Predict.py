@@ -100,8 +100,7 @@ def make_prediction(pipeline,encoder):
     probability = pipeline.predict_proba(df)[0][pred_int]
 
      # Map probability to Yes or No
-    probability_label = "Yes" if pred_int == 1  else "No"
-     
+
     # update the session state with the prediction and probability
     st.session_state["prediction"] = prediction
     st.session_state["probability_label"] = probability_label
@@ -182,5 +181,5 @@ if __name__ == "__main__":
             probability = st.session_state['probability']*100
             st.write(f"{probability:.2f}%")
             
-    
+
 

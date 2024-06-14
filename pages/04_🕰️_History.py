@@ -7,6 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
+
 st.write("History Page 🕰️")
 
 # load the prediction_history csv
@@ -14,3 +15,4 @@ history_df = pd.read_csv("./data/prediction_history.csv")
 
 # write the history page to user interface
 st.dataframe(history_df)
+
