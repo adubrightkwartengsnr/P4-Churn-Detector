@@ -1,5 +1,9 @@
+
 Gender,SeniorCitizen,Partner,Tenure,MonthlyCharges,TotalCharges,PaymentMethod,Contract,PaperlessBilling,Dependents,PhoneService,MultipleLines,StreamingTV,StreamingMovies,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,InternetService,PredictionTime,ModelUsed,Prediction,PredictionProbability
 Male,Yes,Yes,0,0.0,0.0,Electronic check,Month-to-month,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Fiber optic,2024-06-14,Catboost,Yes,0.648259015583702
+
+
+
 Male,Yes,Yes,0,0.0,0.0,Electronic check,Month-to-month,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Fiber optic,2024-06-14,Catboost,Yes,0.648259015583702
 Male,Yes,Yes,13,100.0,999.6,Electronic check,Month-to-month,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Fiber optic,2024-06-14,Catboost,Yes,0.6065755683643022
 Male,Yes,Yes,13,100.0,999.6,Electronic check,Month-to-month,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Fiber optic,2024-06-14,SGB,Yes,0.6790434064602742
