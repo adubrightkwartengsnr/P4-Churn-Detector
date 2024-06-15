@@ -78,9 +78,7 @@ st.success("Data loaded successfully!")
 if "category" not in st.session_state:
     st.session_state["category"] = "All Columns"
 
-# initialize the session state for show_info
-# if "show_info" not in st.session_state:
-#     st.session_state["show_info"] = False
+
 
 
 col1,col2 = st.columns(2)
