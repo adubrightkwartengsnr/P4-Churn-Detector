@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 
-st.write("History Page 🕰️")
+st.title("History Page 🕰️")
 
 # load the prediction_history csv
 history_df = pd.read_csv("./data/prediction_history.csv")
