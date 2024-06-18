@@ -6,3 +6,4 @@ Dashboard Page: 📈
 Personal: 🧑‍💼
 Service Informatio: 🛠️
 hand: 👇
+bulk: 🔮
