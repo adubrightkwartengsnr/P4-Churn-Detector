@@ -99,11 +99,12 @@ def make_prediction(pipeline,encoder):
     # calculate prediction probability
     probability = pipeline.predict_proba(df)[0][pred_int]
 
-     # Map probability to Yes or No
+    # Map probability to Yes or No
+    prediction_label = "Yes" if pred_int == 1 else "No"
 
     # update the session state with the prediction and probability
     st.session_state["prediction"] = prediction
-    st.session_state["probability_label"] = probability_label
+    st.session_state["prediction_label"] = prediction_label
     st.session_state["probability"] = probability
     
     # update the dataframe to capture predictions for the history page
@@ -113,10 +114,9 @@ def make_prediction(pipeline,encoder):
     df["PredictionProbability"] = st.session_state["probability"]
     # export df as prediction_history.csv
     df.to_csv('./data/prediction_history.csv',mode="a", header=not os.path.exists('./data/prediction_history.csv'),index=False)
-    return prediction,probability_label,probability
+    return prediction,prediction_label,probability
 
-# create an 
-
+# create an initial instance of session state to hold prediction
 if "prediction" not in st.session_state:
     st.session_state.prediction = None
 

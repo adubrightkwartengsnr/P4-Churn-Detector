@@ -61,7 +61,7 @@ with st.container():
         st.write("With our powerful machine learning algorithms, you could also try to predict whether a customer will churn or not with you own dataset!")
         data_button = st.button("Upload your data",key="data")
         if data_button:
-            switch_page("Data")  
+            switch_page("Bulk_Predict")  
         
         
         
