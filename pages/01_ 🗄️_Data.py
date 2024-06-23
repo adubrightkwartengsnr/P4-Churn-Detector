@@ -22,7 +22,7 @@ def init_connection():
         f"DRIVER={{SQL Server}};SERVER={st.secrets['server']};DATABASE={st.secrets['database']};UID={st.secrets['username']};PWD={st.secrets['password']}"
     )
 # call the init_connection
-# connection = init_connection()
+connection = init_connection()
 
 # querrying the database
 @st.cache_data(show_spinner="running query ... ")

@@ -103,10 +103,20 @@ if __name__ == "__main__":
         data["TotalCharges"] = pd.to_numeric(data["TotalCharges"],errors="coerce")
         # map the senior citizen column into Yes or No
         data["SeniorCitizen"] = data["SeniorCitizen"].map({0:"No",1:"Yes"})
+        
         # call the make predictions
         prediction_df = make_bulk_prediction(pipeline,encoder,data)
         st.markdown("### 👇View Prediction Result")
         st.write(prediction_df)
+
+        # convert data to csv
+        pred_csv = prediction_df.to_csv(index=False).encode("utf-8")
+
+        st.download_button(
+            "Download the Data",
+            data=pred_csv,
+            file_name="Prediction_Result.csv",
+            mime="text/csv")
     else:
         st.write("Please upload your data")
 
