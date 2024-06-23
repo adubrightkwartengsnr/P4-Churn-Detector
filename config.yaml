@@ -1,0 +1,21 @@
+credentials:
+  usernames:
+    brightadu:
+      email: adubrightkwarrteng11@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Bright Kwarteng Senior Adu 
+      password: "1234" # Will be hashed automatically
+    bksadu:
+      email: adubrightkwartengsnr@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      logged_in: False # Will be managed automatically
+      name: Bright Adu
+      password: "trial123" # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: some_signature_key # Must be string
+  name: some_cookie_name
+pre-authorized:
+  emails:
+  - adubrightkwarrteng11@gmail.com
