@@ -52,8 +52,6 @@ elif st.session_state["authentication_status"] == False:
     '''
     st.code(test_code)
 else:
-    st.info("Login Successful")
-    st.write(f'Welcome *{username}*')
      #logout user using streamlit authentication logout
     authenticator.logout('Logout', 'sidebar')
 
