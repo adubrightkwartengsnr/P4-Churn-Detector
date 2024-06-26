@@ -19,7 +19,7 @@ ChurnXplorer is a powerful web application built on top of three machine learnin
 
 ## Introduction 🚀
 
-ChurnPredict Pro uses a state-of-the-art models(CatBoost,Logistic Regression and SGB models) to predict customer churn. It offers a user-friendly interface for inputting customer data and receiving instant churn predictions.
+ChurnXplorer uses a state-of-the-art models(CatBoost,Logistic Regression and SGB models) to predict customer churn. It offers a user-friendly interface for inputting customer data and receiving instant churn predictions.
 
 ## Features ✨
 
@@ -31,9 +31,9 @@ ChurnPredict Pro uses a state-of-the-art models(CatBoost,Logistic Regression and
 ## Demo 🚀
 
 - ### Pictures 📸
-  | ![app header](https://p4-churn-detector-embedding-ml-models-in.onrender.com) | ![more cus info](https://github.com/adubrightkwartengsnr/P4-Churn-Detector-Embedding-ML-models-in-Web-framework-Streamlit) |
+  | ![app header](./utils/app-screenshots/Screenshot 2024-06-24 221230.png) | ![more cus info](https://p4-churn-detector-embedding-ml-models-in.onrender.com) |
   | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  |![submit and pred](https://p4-churn-detector-embedding-ml-models-in.onrender.com)| ![pred](https://github.com/adubrightkwartengsnr/P4-Churn-Detector-Embedding-ML-models-in-Web-framework-Streamlit)                 |
+  |![submit and pred](./utils/app-screenshots/Screenshot 2024-06-24 221524.png)| ![pred](https://p4-churn-detector-embedding-ml-models-in.onrender.com/Predict)|
 
 - ### Article Link 🌐
   [Read Article](https://medium.com/@adubrightkwarrteng11/churnxplorer-e5af00c55cb6)
@@ -48,7 +48,7 @@ Follow these instructions to get the app up and running on your local machine.
 
    ```bash
    git clone https://github.com/adubrightkwartengsnr/P4-Churn-Detector-Embedding-ML-models-in-Web-framework-Streamlit
-   cd P4-ChurnPredict-Pro
+   cd P4-Churn-Detector-Embedding-ML-models-in-Web-framework-Streamlit
    ```
 
 2. Create a virtual environment (optional but recommended):
@@ -94,10 +94,11 @@ Access the app through your web browser at `http://localhost:8501/`.
 - Streamlit: Python framework for building interactive interfaces for data science applications.
 - Pandas: Data manipulation and analysis library.
 - Scikit-Learn: Machine learning library.
+- Plotly: an open-source module of Python that is used for data visualization and supports various graphs like line charts, scatter plots, bar charts, histograms, area plots, etc. Plotly produces interactive graphs, can be embedded on websites, and provides a wide variety of complex plotting options.
 
 ## Contributing 🤝🙌
 
-Contributions to the ChurnPredict Pro project are welcome. Please follow these guidelines for contributing:
+Contributions to the ChurnXplorer project are welcome. Please follow these guidelines for contributing:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`
