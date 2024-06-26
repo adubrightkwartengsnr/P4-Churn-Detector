@@ -31,9 +31,9 @@ ChurnXplorer uses a state-of-the-art models(CatBoost,Logistic Regression and SGB
 ## Demo 🚀
 
 - ### Pictures 📸
-  | ![app header](utils/app-screenshots/Screenshot 2024-06-24 221230.png)| ![more cus info](https://p4-churn-detector-embedding-ml-models-in.onrender.com) |
+  | ![app header](utils\app-screenshots\Screenshot 2024-06-24 221230.png)| ![more cus info](https://p4-churn-detector-embedding-ml-models-in.onrender.com)|
   | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  |![submit and pred](utils/app-screenshots/Screenshot 2024-06-24 221524.png)| ![pred](https://p4-churn-detector-embedding-ml-models-in.onrender.com/Predict)|
+  |![submit and pred](utils\app-screenshots\Screenshot 2024-06-24 221524.png)| ![pred](https://p4-churn-detector-embedding-ml-models-in.onrender.com/Predict)|
 
 - ### Article Link 🌐
   [Read Article](https://medium.com/@adubrightkwarrteng11/churnxplorer-e5af00c55cb6)
